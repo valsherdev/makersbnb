@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}  
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('get_index') }}">Home</a></li>
+        <li><a href="{{ url_for('get_listings') }}">Create Listing</a></li>
+        <li><a href="{{ url_for('see_my_bookings_as_guest') }}">View My Guest Bookings</a></li>
+    </ul>
+</nav>
+
+<h1>Booking Requests</h1>
+<hr>
+<ul style="list-style-type: none">
+{% for booking_request_detail in booking_request_details %}
+    <li class='booking_request'>
+        <p>Listing: {{ booking_request_detail[0] }}</p>
+        <p>Guest: {{ booking_request_detail[1] }}</p>
+        <p>Date requested: {{ booking_request_detail[2] }}</p>
+        <form  method="POST" action="/booking_requests/{{ booking_request_detail[3] }}/accept">
+            <button type="submit">Accept</button>
+        </form> 
+        <form  method="POST" action="/booking_requests/{{ booking_request_detail[3] }}/decline">
+            <button type="submit">Decline</button>
+        </form> 
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

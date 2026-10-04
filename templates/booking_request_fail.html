@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}    
+    <h1>Booking request creation failed</h1>
+    <h2>This can be for these reasons:</h2>
+    <ul>
+        <li>Requested date is out of available range</li>
+        <li>Requested date is already booked</li>
+    </ul>
+    <form action="/" method="get">
+        <input type="submit" value="Return to home page">
+    </form>
+{% endblock %}

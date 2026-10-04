@@ -1,0 +1,7 @@
+__pycache__
+.vscode
+.pytest_cache
+screenshot.png
+makersbnb-venv
+*.DS_Store 
+.demo.zsh

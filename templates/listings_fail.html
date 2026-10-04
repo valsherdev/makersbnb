@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}    
+    <h1>Listing creation failed</h1>
+    <h2>This can be for these reasons:</h2>
+    <ul>
+        <li>End date is before start date</li>
+    </ul>
+    <form action="/listings" method="get">
+        <input type="submit" value="Return to listing creation">
+    </form>
+{% endblock %}

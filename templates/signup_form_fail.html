@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}    
+    <h1>Sign up failed</h1>
+    <h2>This can be for these reasons:</h2>
+    <ul>
+        <li>Username or email already exists</li>
+        <li>One or more fields are empty</li>
+    </ul>
+    <form action="/sign-up" method="get">
+        <input type="submit" value="Return to sign up">
+    </form>
+{% endblock %}

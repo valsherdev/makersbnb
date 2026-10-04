@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}  
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('get_index') }}">Home</a></li>
+        <li><a href="{{ url_for('get_listings') }}">Create Listing</a></li>
+        <li><a href="{{ url_for('get_requests_for_owner') }}">View Booking Requests</a></li>
+    </ul>
+</nav>
+
+<h1>My Bookings</h1>
+<hr>
+<ul style="list-style-type: none">
+{% for confirmed_booking in confirmed_bookings_details %}
+    <li class='confirmed_booking'>
+        <p>Listing: {{ confirmed_booking[0] }}</p>
+        <p>Date: {{ confirmed_booking[1] }}</p>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ listing.name }}</h1>
+
+  <img style="height: 300px;" src="{{ url_for('static', filename='images/' + listing.image_path) }}" alt="My Flask Image">
+  
+  <p>{{ listing.description }}</p>
+  <p>{{ listing.price_per_night }} GBP per night</p>
+  <p>Available from: {{ listing.start_date }}</p>
+  <p>Available until: {{ listing.end_date }}</p>
+
+  <br/>
+  <h1>Make a booking request</h1>
+  <form  method="POST" action="/listings/{{ listing.id }}">
+    <label>Date</label><br>
+    <input type="date" name="date" id="date", value="{{ today }}", min="{{ today }}">
+    <input type="submit" value="Submit">
+  </form> 
+{% endblock %}

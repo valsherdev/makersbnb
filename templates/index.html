@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}  
+
+<nav>
+    <ul>
+        {% if user_id %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="{{ url_for('get_listings') }}">Create Listing</a></li>
+        <li><a href="{{ url_for('get_requests_for_owner') }}">View Booking Requests</a></li>
+        <li><a href="{{ url_for('see_my_bookings_as_guest') }}">View My Guest Bookings</a></li>
+
+        {% else %}
+
+        <li><a href="{{ url_for('get_login_form') }}">Log in</a></li>
+        <li><a href="{{ url_for('signup_form') }}">Signup</a></li>
+        
+        {% endif %}
+    </ul>
+</nav>
+
+<h1 style="font-size: 5rem;">MakersBnB</h1>
+<p>Stay. Host. Explore.</p>
+
+<hr>
+<ul style="list-style-type: none">
+{% for listing in listings %}
+    <li class='listing'>
+        <h2><a style="text-decoration: none;"
+            href="{{ url_for('get_individual_listing', listing_id=listing.id ) }}">{{ listing.name }}</a></h2>
+        <!-- <img style="height: 300px" -->
+            <!-- src="static/images/dummy_cottage.jpg" alt="Countryside Cottage"> -->
+            <img style="height: 300px;" src="{{ url_for('static', filename='images/' + listing.image_path) }}" alt="My Flask Image">
+        <p>{{ listing.description }}</p>
+        <p>{{ listing.price_per_night }} GBP per night</p>
+        <p>Available from: {{ listing.start_date }}</p>
+        <p>Available until: {{ listing.end_date }}</p>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}    
+    <h1>Log in failed</h1>
+    <h2>This can be for these reasons:</h2>
+    <ul>
+        <li>Email or password is incorrect</li>
+        <li>Email cannot be found</li>
+    </ul>
+    <form action="/sessions/new" method="get">
+        <input type="submit" value="Return to login">
+    </form>
+{% endblock %}

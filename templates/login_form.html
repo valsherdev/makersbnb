@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>MakersBNB</h1>
+
+  <h2>Login Form</h2>
+
+  <form action="/sessions" method="post">
+    <label>Email</label>
+    <input type="text" name="email" placeholder="Email">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password">
+
+    <br>
+    <button type="submit">Login</button>
+  </form>
+
+  </form>
+    <label>Don't have an account?</label>
+    <form action="/sign-up" method="get">
+        <input type="submit" value="Sign up today">
+    </form>
+{% endblock %}
